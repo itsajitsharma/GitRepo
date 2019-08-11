@@ -1,0 +1,51 @@
+SAMPLE PROBLEM 1
+Use Java or Flex language for submitting the solution. The solution will be evaluated on following parameters.
+*Object Oriented Design aspects of the solution.
+*Overall coding practices.
+*Working test cases of the solution.
+You can use Ant/Maven as build tools for the solution, Junit, Mockito or other testing frameworks. You may also include a brief explanation of your design and assumptions along with your code.
+ 
+
+This is the first part of the problem the second part will be done in-office during pair programming round.
+The City Of Archers
+ Back in human history there used to exist a city known as Genon City .It was always under threat from the enemies but it had the best archers in the world ever known to protect it.
+ To prepare for battle all archers performed similar actions. First go to wamboo-a warehouse- to collect arrows. Number of arrows one gets is the sequence number in which he arrives, first one gets 1, second 2 and so on. No two archers arrive at the same time.
+ Every archer then puts the arrows inside marina - a machine - which first cleans the arrow, then sharpens and finally colour’s it but every 5th arrows that is cleaned get broken ,so machine replaces it with a special arrow which is equivalent to 2 normal arrows and archer is not aware of this.
+At the battle fort they stand in same sequence as they arrived at warehouse and fire one by one starting with first. Far away are enemies. It takes 2n arrow to kill an enemy, first 2, and second 4, third 6 and so on. Every 7th arrow fired misses the enemy which increases that enemy’s strength and it requires 2 more arrows now to get killed ,Archers is not aware of this.
+Before every arrow shot, an archer knows how many enemies are already killed or semi killed (shot with few arrows before). So he calculates arrows for killing next enemy .An archer leaves whenever he doesn't have enough arrows to kill the enemy and next archers come to action. 
+A battle is won if all the enemies are killed with 0 or more arrows remaining.
+Write an application which models the above situation. First input to the application should be number of archers and the second input should be  number of enemies.
+
+
+
+
+
+Sample Input/Outputs
+Input
+Number of Archer 4
+Number of Enemies 2
+Output
+Battle - Won
+Total Enemies Killed: 2 Total Arrows Fired: 6
+
+
+Input
+Number of Archer 20
+Number of Enemies 5
+Output
+Battle - Won
+Total Enemies Killed: 5 Total Arrows Fired: 41
+
+Input
+Number of Archer 100
+Number of Enemies 50
+Output
+Battle - Lost
+Total Enemies Killed: 45 Total Arrows Fired: 2817
+
+Input
+Number of Archer 70
+Number of Enemies 40
+Output
+Battle - Lost
+Total Enemies Killed: 31 Total Arrows Fired: 1428 
