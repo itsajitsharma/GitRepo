@@ -29,4 +29,5 @@ package com.ajit.problems;
  */
 
 public class Triplets {
+	
 }

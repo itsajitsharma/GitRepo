@@ -13,6 +13,10 @@ import java.util.Stack;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import com.ajit.comparator.CustomIntComparator;
+import com.ajit.data.ListNode;
+import com.ajit.problems.data.Interval;
+
 
 public class Test {
 	
@@ -112,60 +116,7 @@ public class Test {
 		return false;
 	}
 
-	/*
-	 * maxset - Arrays
-	 * 
-	 * Find out the maximum sub-array of non negative numbers from an array. The
-	 * sub-array should be continuous. That is, a sub-array created by choosing
-	 * the second and fourth element and skipping the third element is invalid.
-	 * 
-	 * Maximum sub-array is defined in terms of the sum of the elements in the
-	 * sub-array. Sub-array A is greater than sub-array B if sum(A) > sum(B).
-	 * 
-	 * Example:
-	 * 
-	 * A : [1, 2, 5, -7, 2, 3] The two sub-arrays are [1, 2, 5] [2, 3]. The
-	 * answer is [1, 2, 5] as its sum is larger than [2, 3] NOTE: If there is a
-	 * tie, then compare with segment's length and return segment which has
-	 * maximum length NOTE 2: If there is still a tie, then return the segment
-	 * with minimum starting index
-	 */
-
-	public ArrayList<Integer> maxset(ArrayList<Integer> a) {
-		ArrayList<Integer> returnList = new ArrayList<Integer>();
-		ArrayList<Integer> currentList = new ArrayList<Integer>();
-		long sum = 0;
-		long currentSum = 0;
-		for (Integer val : a) {
-
-			if (val >= 0) {
-				currentList.add(val);
-				currentSum = currentSum + val;
-			} else {
-				if (sum < currentSum) {
-					sum = currentSum;
-					returnList = currentList;
-				} else if (sum == currentSum) {
-					if (returnList.size() < currentList.size()) {
-						returnList = currentList;
-					}
-				}
-				currentSum = 0;
-				currentList = new ArrayList<Integer>();
-			}
-		}
-
-		if (sum < currentSum) {
-			sum = currentSum;
-			returnList = currentList;
-		} else if (sum == currentSum) {
-			if (returnList.size() < currentList.size()) {
-				returnList = currentList;
-			}
-		}
-
-		return returnList;
-	}
+	
 
 	/*
 	 * REACH - Arrays
@@ -320,18 +271,18 @@ public class Test {
 
 		for (Interval interval : intervals) {
 			// New interval is completely before current interval
-			if (interval.start > newInterval.end) {
+			if (interval.getStart() > newInterval.getEnd()) {
 				returnIntervals.add(newInterval);
 				newInterval = interval;
-			} else if (interval.end < newInterval.start) {// new interval is
+			} else if (interval.getEnd() < newInterval.getStart()) {// new interval is
 															// completely after
 															// current interval
 				returnIntervals.add(interval);
 			} else {// newInterval is overlapping with currentInterval
-				int newStart = interval.start >= newInterval.start ? newInterval.start
-						: interval.start;
-				int newEnd = interval.end <= newInterval.end ? newInterval.end
-						: interval.end;
+				int newStart = interval.getStart() >= newInterval.getStart() ? newInterval.getStart()
+						: interval.getStart();
+				int newEnd = interval.getEnd() <= newInterval.getEnd() ? newInterval.getEnd()
+						: interval.getEnd();
 				newInterval = new Interval(newStart, newEnd);
 			}
 		}
@@ -6890,13 +6841,7 @@ Whats the maximum value of n and k?
 		 * System.out.println(map.subMap(0, true, 9, true));
 		 */
 
-		/*
-		 * ArrayList<Integer> a = new ArrayList<Integer>(); a.add(1967513926);
-		 * a.add(1540383426); a.add(-1303455736); a.add(-521595368);
-		 * 
-		 * Test test = new Test(); System.out.println(test.maxset(a));
-		 */
-
+		
 		
 	}
 
