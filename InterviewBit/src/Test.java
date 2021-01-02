@@ -14,8 +14,8 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import com.ajit.comparator.CustomIntComparator;
+import com.ajit.data.Interval;
 import com.ajit.data.ListNode;
-import com.ajit.problems.data.Interval;
 
 
 public class Test {
@@ -150,7 +150,7 @@ public class Test {
 			} else {
 				int xDiff = Math.abs(X.get(i) - currentX);
 				int yDiff = Math.abs(Y.get(i) - currentY);
-				noOfMoves = noOfMoves + (xDiff >= yDiff ? xDiff : yDiff);
+				noOfMoves = noOfMoves + (Math.max(xDiff, yDiff));
 				currentX = X.get(i);
 				currentY = Y.get(i);
 			}
@@ -227,7 +227,6 @@ public class Test {
 		/*
 		 * int[] arr = new int[a.size()]; int[] arrB = new int[a.size()];
 		 */
-
 		for (int i = 0; i < a.size(); i += 2) {
 			if (i + 1 < a.size()) {
 				int temp = a.get(i);
