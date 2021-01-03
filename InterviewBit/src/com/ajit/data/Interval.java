@@ -1,4 +1,4 @@
-package com.ajit.problems.data;
+package com.ajit.data;
 
 public class Interval {
 	int start;

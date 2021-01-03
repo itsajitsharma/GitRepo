@@ -1,7 +1,6 @@
-package com.ajit.interviewbit;
+package com.ajit.interviewbit.arrays;
 
 import java.util.ArrayList;
-
 
 /*You are given a binary string(i.e. with characters 0 and 1) S consisting of characters S1, S2, …, SN. In a single operation, you can choose two indices L and R such that 1 <= L <= R <= N and flip the characters SL, SL+1, …, SR. By flipping, we mean change character 0 to 1 and vice-versa.
 
@@ -32,14 +31,14 @@ No operation can give us more than three 1s in final string. So, we return empty
 */
 
 public class FlipArray {
-	
+
 	public static void main(String[] args) {
 		System.out.println(flip("010"));
 		System.out.println(flip("1101010001"));
 	}
-	
-	public static ArrayList<Integer> flip(String A){
-		if(A==null || A.length() ==0){
+
+	public static ArrayList<Integer> flip(String A) {
+		if (A == null || A.length() == 0) {
 			return new ArrayList<Integer>();
 		}
 		char[] charArray = A.toCharArray();
@@ -49,31 +48,28 @@ public class FlipArray {
 		int maxEndInd = -1;
 		int currStartInd = 0;
 		int currEndInd = -1;
-		int onesCount = 0;
 		for (int i = 0; i < charArray.length; i++) {
-			if(charArray[i] == '0'){
+			if (charArray[i] == '0') {
 				currSum++;
 				currEndInd = i;
-				if(currSum > maxSum){
+				if (currSum > maxSum) {
 					maxSum = currSum;
 					maxStartInd = currStartInd;
 					maxEndInd = currEndInd;
 				}
-			}
-			else{
-				onesCount++;
+			} else {
 				currSum--;
-				if(currSum < 0){
-					currStartInd = i+1;
+				if (currSum < 0) {
+					currStartInd = i + 1;
 					currSum = 0;
 				}
 			}
 		}
-		
+
 		ArrayList<Integer> returnList = new ArrayList<Integer>();
-		if(maxSum != 0){
-			returnList.add(maxStartInd+1);
-			returnList.add(maxEndInd+1);
+		if (maxSum != 0) {
+			returnList.add(maxStartInd + 1);
+			returnList.add(maxEndInd + 1);
 		}
 		return returnList;
 	}
